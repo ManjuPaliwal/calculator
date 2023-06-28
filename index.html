@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script
+    src="https://code.jquery.com/jquery-3.7.0.js"
+    integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM="
+    crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="center">
+        <form name="forms">
+            <input type="text" id="display" disabled><br>
+            <button id="clear">C</button>
+            <button id="btn" value="%">%</button>
+            <button id="btn" value="/">/</button><br>
+            <button id="btn" value="7">7</button>
+            <button id="btn" value="8">8</button>
+            <button id="btn" value="9">9</button>
+            <button id="btn" value="*">*</button><br>
+            <button id="btn" value="4">4</button>
+            <button id="btn" value="5">5</button>
+            <button id="btn" value="6">6</button>
+            <button id="btn" value="-">-</button><br>
+            <button id="btn" value="1">1</button>
+            <button id="btn" value="2">2</button>
+            <button id="btn" value="3">3</button>
+            <button id="btn" value="+">+</button><br>
+            <button id="btn" value="00">00</button>
+            <button id="btn" value="0">0</button>
+            <button id="btn" value=".">.</button>
+            <button id="equal">=</button>
+        </form>
+    </div>
+
+    <script>
+        let display = document.getElementById('display');
+        let buttons = document.querySelectorAll('#btn');
+        let equal = document.getElementById('equal');
+        let clear = document.getElementById('clear');
+
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                let btnValue = this.value;
+                // let btnValue = e.target.value
+                // console.log(btnValue);
+                display.value += btnValue;
+            });
+        });
+        equal.addEventListener('click', function (e) {
+            // console.log(eval(display.value));
+            let ans = eval(display.value)
+            e.preventDefault();
+            display.value = ans
+        });
+
+        clear.addEventListener('click', function () {
+            display.value = ''
+        });
+    </script>
+    <!-- <script>
+        let buttons = document.querySelectorAll('#btn');
+        buttons.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            let btnValue = btn.value;
+            e.preventDefault();
+            console.log(btnValue);
+          });
+        });
+      </script> -->
+</body>
+
+</html>
